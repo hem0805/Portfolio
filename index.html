@@ -23,7 +23,8 @@
       --muted: #5c5c5c;
     }
     * {
-      margin: 0; padding: 0;
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
       font-family: 'Inter', sans-serif;
     }
@@ -32,24 +33,7 @@
       color: var(--fg);
       background: var(--bg-light);
       line-height: 1.6;
-    }
-    section {
-      padding: 4rem 8vw 5rem;
-    }
-    .alt-section {
-      background: var(--bg-alt);
-    }
-    .intro h1 {
-      font-size: 3.2rem;
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      color: var(--secondary);
-      margin-bottom: 1rem;
-    }
-    .intro p {
-      font-size: 1.2rem;
-      color: var(--muted);
-      max-width: 650px;
+      font-size: 18px;
     }
     nav {
       position: sticky;
@@ -58,79 +42,221 @@
       background: var(--bg-light);
       display: flex;
       justify-content: space-between;
-      padding: 1rem 8vw;
+      padding: 1.1rem 8vw;
       z-index: 1000;
       border-bottom: 1px solid #ccc;
     }
     nav a {
       color: var(--muted);
       text-decoration: none;
-      margin-left: 2rem;
+      margin-left: 1.3rem;
       font-weight: 500;
+      font-size: 1.05rem;
       transition: color 0.2s ease;
     }
-    nav a:hover {
-      color: var(--secondary);
+    nav a:hover { color: var(--secondary); }
+    section { padding: 3.5rem 5vw 3.5rem; }
+    .alt-section { background: var(--bg-alt); }
+    /* Centered, animated intro */
+    .intro {
+      position: relative;
+      min-height: 65vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(153, 151, 151, 0.48), rgba(65, 95, 70, 0.42)),
+        url('https://wallpapershome.com/aesthetic/dark/dark-abstract-contemporary-minimalist-design-26412.html') center/cover no-repeat;
+      animation: intro-bg-fadein 1.3s ease-in;
+      padding-top: 3vh;
+      padding-bottom: 3vh;
     }
-    h2 {
-      font-size: 2.2rem;
+    @keyframes intro-bg-fadein {
+      0% { opacity: 0; filter: blur(3px);}
+      100% { opacity: 1; filter: blur(0);}
+    }
+    .center-intro {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(162, 150, 150, 0.1);
+      border-radius: 22px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 8px 32px rgba(44,53,50,.07);
+    }
+    .center-intro h1 {
+      font-size: 3.6rem;
       font-family: 'Playfair Display', serif;
-      margin-bottom: 1.4rem;
-      color: var(--secondary);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 1.2rem;
+      letter-spacing: -1px;
+      text-shadow: 0 2px 16px rgba(43, 70, 54, 0.28);
+    }
+    .animated-fadein {
+      opacity: 0;
+      animation: fadein 1.2s ease 0.3s forwards;
+    }
+    @keyframes fadein {
+      to { opacity: 1; }
+    }
+    .center-intro p {
+      font-size: 1.37rem;
+      color: #f5f5f5;
+      font-weight: 400;
+      margin-bottom: 2.3rem;
+      line-height: 1.6;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.11);
+    }
+    .animated-slideup {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: slideup 1.2s ease 0.7s forwards;
+    }
+    @keyframes slideup {
+      to { opacity: 1; transform: none; }
+    }
+    .center-intro .button {
+      font-size: 1.22rem;
+      padding: 1rem 2.3rem;
+      border-radius: 2em;
+      background: var(--secondary);
+      color: #fff;
+      border: none;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 2px 18px rgba(44,61,35,0.08);
+      transition: background 0.2s, transform 0.12s;
+      position: relative;
+    }
+    .animated-bounce {
+      animation: bounceIn 1.3s cubic-bezier(.23,1.22,.69,.9) 1s forwards;
+      opacity: 0;
+    }
+    @keyframes bounceIn {
+      0% { opacity: 0; transform: scale(0.6);}
+      40% { opacity: .65; transform: scale(1.15);}
+      70% { opacity: 1; transform: scale(0.97);}
+      100% { opacity: 1; transform: scale(1);}
+    }
+    .center-intro .button:hover {
+      background: #1d2b1b;
+      transform: scale(1.05);
+      box-shadow: 0 6px 30px rgba(44,61,35,0.13);
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
       gap: 1.2rem;
     }
     .card {
       background: #fff;
-      padding: 1.4rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-      transition: transform 0.3s;
+      padding: 1.3rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.11);
+      transition: all 0.3s cubic-bezier(.25,.8,.25,1);
       cursor: pointer;
+      position: relative;
     }
     .card:hover {
-      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      transform: translateY(-7px);
       border: 1px solid var(--accent);
     }
     .card h3 {
       color: var(--accent);
-      margin-bottom: 0.5rem;
+      font-size: 1.18rem;
+      margin-bottom: 0.52rem;
     }
     .card .details {
       display: none;
-      font-size: 0.95rem;
+      font-size: 1.05rem;
       color: var(--muted);
-      margin-top: 0.6rem;
+      margin-top: 0.62rem;
+      line-height: 1.5;
+    }
+    .card.show .details {
+      display: block;
     }
     .card img {
       width: 100%;
-      border-radius: 6px;
-      margin-bottom: 0.8rem;
+      border-radius: 12px;
+      margin-bottom: 0.63rem;
     }
-    .timeline {
-      position: relative;
-      margin-left: 1rem;
-      padding-left: 2rem;
-      border-left: 2px solid var(--accent);
+    /* Contact section font sizes unified with rest of site */
+    .center-contact {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
     }
-    .timeline-item {
-      margin-bottom: 2.5rem;
+    .center-contact form, .center-contact p {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
     }
-    .timeline-item h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.3rem;
-      color: var(--accent);
+    form {
+      max-width: 500px;
+      background: #fff;
+      padding: 2.1rem 1.5rem;
+      border-radius: 16px;
+      box-shadow: 0 7px 30px rgba(34, 60, 80, 0.10);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      font-size: 1.08rem;
     }
-    .timeline-item p {
-      font-size: 0.95rem;
+    form label {
+      font-weight: 700;
+      font-size: 1.08rem;
+      color: var(--secondary);
+      margin-bottom: 0.14em;
+      text-align: left;
+    }
+    form input, form textarea {
+      font-size: 1.08rem;
+      padding: 0.69rem 0.65rem;
+      border-radius: 10px;
+      border: 2px solid #bbb;
+      background: #fafafa;
+      color: var(--fg);
+      font-family: inherit;
+      margin-bottom: 0.17em;
+    }
+    form button {
+      font-size: 1.08rem;
+      padding: 0.85rem 1.45rem;
+      border-radius: 10px;
+      background: var(--secondary);
+      color: #fff;
+      border: none;
+      font-family: inherit;
+      cursor: pointer;
+      margin-top: 1.1rem;
+      letter-spacing: 0.05em;
+      transition: background 0.18s;
+    }
+    form button:hover {
+      background: #354832;
+      opacity: 0.94;
+    }
+    .center-contact p {
+      font-size: 1.08rem;
       color: var(--muted);
+      margin-top: 1.3em;
+      max-width: 650px;
+    }
+    .center-contact a {
+      font-size: 1.08em;
     }
     footer {
       text-align: center;
-      padding: 2rem 8vw;
+      padding: 1.5rem 5vw;
       background: var(--bg-alt);
       color: var(--muted);
     }
@@ -139,13 +265,25 @@
       margin-top: 1.2rem;
       background: var(--secondary);
       color: white;
-      padding: 0.6rem 1.4rem;
-      border-radius: 6px;
+      padding: 0.75rem 1.7rem;
+      border-radius: 8px;
       text-decoration: none;
+      font-size: 1.08rem;
+      font-weight: 600;
     }
+    a.button:hover { opacity: 0.94; background: #354832;}
     @media(max-width: 768px){
-      .intro h1 { font-size: 2rem; }
-      nav a { margin-left: 1rem; font-size: 0.9rem; }
+      .center-intro h1 { font-size: 2.1rem; }
+      .center-intro p { font-size: 1.02rem; }
+      .center-intro { padding: 1.0rem 0.2rem; }
+      .intro { min-height: 45vh; }
+      .intro { padding-top: 1vh; padding-bottom: 1vh;}
+      nav a { margin-left: 0.8rem; font-size: 1.0rem; }
+      h2 { font-size: 1.18rem; }
+      section { padding: 1.6rem 2vw 1.6rem; }
+      .card { padding: 1rem; }
+      form { font-size: 1.0rem; padding: 0.95rem 0.4rem;}
+      .center-contact p { font-size: 0.98rem; }
     }
   </style>
 </head>
@@ -160,25 +298,64 @@
       <a href="#contact">Contact</a>
     </div>
   </nav>
-
   <section class="intro" id="home" data-aos="fade-up">
-    <h1>Hi, I'm Hemnath</h1>
-    <p>AI & QA engineer with a focus on building intelligent systems that simplify life. I blend <b>deep learning, automation, and testing</b> to solve real-world challenges—especially in healthcare and human wellbeing.</p>
-    <a class="button" href="Hem Resume AI.pdf" download>Download Resume</a>
+    <div class="center-intro">
+      <h1 class="animated-fadein">Hi, I'm Hemnath</h1>
+      <p class="animated-slideup">
+        AI & QA engineer with a focus on building intelligent systems that simplify life. I blend <b>deep learning, automation, and testing</b> to solve real-world challenges—especially in healthcare and human wellbeing.
+      </p>
+      <a class="button animated-bounce" href="Hem Resume AI.pdf" download>Download Resume</a>
+    </div>
   </section>
-
   <section id="skills" class="alt-section" data-aos="fade-right">
     <h2>Skills</h2>
     <div class="grid">
-      <div class="card"><h3>Python</h3></div>
-      <div class="card"><h3>TensorFlow / PyTorch</h3></div>
-      <div class="card"><h3>SQL & Data Analysis</h3></div>
-      <div class="card"><h3>OCR & Computer Vision</h3></div>
-      <div class="card"><h3>Automation (Selenium, CI/CD)</h3></div>
-      <div class="card"><h3>Transformers, NLP</h3></div>
+      <div class="card" onclick="toggleDetails(this)">
+        <h3>Programming & Frameworks</h3>
+        <p class="details">Python, SQL, Git, TensorFlow, PyTorch, and Scikit-learn, ML, OCR</p>
+      </div>
+      <div class="card" onclick="toggleDetails(this)">
+        <h3>Data Processing & Feature Engineering</h3>
+        <p class="details">Skilled in NumPy, Pandas, OpenCV, NLTK, and SpaCy</p>
+      </div>
+      <div class="card" onclick="toggleDetails(this)">
+        <h3>Data Analytics & Visualization</h3>
+        <p class="details">Power BI, Data Analytics, MS Excel</p>
+      </div>
+      <div class="card" onclick="toggleDetails(this)">
+        <h3>AI & Automation</h3>
+        <p class="details">ChatGPT, Google Colab, Automation, Azure</p>
+      </div>
+      <div class="card" onclick="toggleDetails(this)">
+        <h3>Software Testing</h3>
+        <p class="details">Selenium, Manual, Regression, API Testing, JIRA, CI/CD Pipelines, TestNG, Jenkins</p>
+      </div>
     </div>
   </section>
-
+  <section id="experience" class="alt-section" data-aos="fade-up">
+    <h2>Experience</h2>
+    <div class="grid">
+      <div class="card" onclick="toggleDetails(this)">
+        <h3>Associate Software Engineer (QA) – HealthEdge (2024–2025)</h3>
+        <p class="details">
+          Built and maintained automation frameworks for claims and compliance in US healthcare systems.<br>
+          Led testing in CI/CD pipelines.<br>
+          Automated regression and API testing using Selenium, TestNG, and Jenkins.<br>
+          Collaborated with cross-functional teams to enhance software quality.<br>
+          Conducted thorough manual and automated tests to ensure robust product releases.
+        </p>
+      </div>
+      <div class="card" onclick="toggleDetails(this)">
+        <h3>AI Intern – RBG.AI (2023)</h3>
+        <p class="details">
+          Developed NLP and computer vision solutions using deep learning for document and image analysis.<br>
+          Integrated OCR pipelines for automated data extraction and processing.<br>
+          Improved model efficiency and accuracy for real-time deployment.<br>
+          Optimized machine learning workflows in collaboration with senior engineers.
+        </p>
+      </div>
+    </div>
+  </section>
   <section id="projects" data-aos="fade-left">
     <h2>Projects</h2>
     <div class="grid">
@@ -208,43 +385,40 @@
       </div>
     </div>
   </section>
-
-  <section id="experience" class="alt-section" data-aos="fade-up">
-    <h2>Experience</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>Associate Software Engineer (QA) – HealthEdge (2024–2025)</h3>
-        <p>Built and maintained automation frameworks for claims and compliance in US healthcare systems. Led testing in CI/CD pipelines.</p>
-      </div>
-      <div class="timeline-item">
-        <h3>AI Intern – RBG.AI (2023)</h3>
-        <p>Developed NLP and computer vision solutions using deep learning. Optimized pipelines with OCR integration for data extraction.</p>
-      </div>
-    </div>
-  </section>
-
   <section id="contact" data-aos="zoom-in">
     <h2>Contact</h2>
-    <p style="max-width: 500px; color: var(--muted);">
-      I'm always open to interesting collaborations and AI challenges. Whether you're building healthcare tools, research, or scalable ML systems—let's connect!
-    </p>
-    <p>Email me at <a href="mailto:hemnath0805@gmail.com" style="color: var(--accent); text-decoration: none;">hemnath0805@gmail.com</a></p>
-    <p><a href="https://linkedin.com/in/hemnath-n" target="_blank" style="color: var(--secondary);">LinkedIn Profile</a></p>
+    <div class="center-contact">
+      <form action="https://formspree.io/f/mkgzjapj" method="POST" autocomplete="off">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <label for="purpose">Purpose / Message</label>
+        <textarea id="purpose" name="purpose" rows="4" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+      <p>
+        Alternatively, email me at
+        <a href="mailto:hemnath0805@gmail.com" style="color: var(--accent); text-decoration: none;">hemnath0805@gmail.com</a>
+        or connect on
+        <a href="https://linkedin.com/in/hemnath-n" target="_blank" style="color: var(--secondary);">LinkedIn</a>.
+      </p>
+    </div>
   </section>
-
   <footer>
     &copy; 2025 Hemnath — AI Engineer Portfolio
   </footer>
-
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
     function toggleDetails(card) {
-      const detail = card.querySelector('.details');
-      const isVisible = detail.style.display === 'block';
-      document.querySelectorAll('.card .details').forEach(el => el.style.display = 'none');
-      if (!isVisible) detail.style.display = 'block';
+      document.querySelectorAll('.card').forEach(function(otherCard) {
+        if (otherCard !== card) {
+          otherCard.classList.remove('show');
+        }
+      });
+      card.classList.toggle('show');
     }
   </script>
 </body>
-</html> 
+</html>
