@@ -22,12 +22,7 @@
       --secondary: #445c42;
       --muted: #5c5c5c;
     }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
     html { scroll-behavior: smooth; }
     body {
       color: var(--fg);
@@ -68,8 +63,7 @@
       overflow: hidden;
       background:
         linear-gradient(rgba(37, 48, 39, 0.48), rgba(65, 95, 70, 0.42)),
-        url('https://i.pinimg.com/1200x/ee/26/d0/ee26d084e2a17ebdb4798f8cefba3329.jpg') center/cover no-repeat;
-        /* https://plus.unsplash.com/premium_photo-1661407757391-a5f03cbea97b?q=80&w=1521&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D */
+        url('https://plus.unsplash.com/premium_photo-1661407757391-a5f03cbea97b?q=80&w=1521&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/contain no-repeat;
       animation: intro-bg-fadein 1.3s ease-in;
       padding-top: 3vh;
       padding-bottom: 3vh;
@@ -84,7 +78,7 @@
       width: 100%;
       max-width: 700px;
       margin: 0 auto;
-      background: rgba(2, 0, 5, 0);
+      background: rgba(255,255,255,0.10);
       border-radius: 22px;
       padding: 2.5rem 2rem;
       box-shadow: 0 8px 32px rgba(44,53,50,.07);
@@ -93,7 +87,7 @@
       font-size: 3.6rem;
       font-family: 'Playfair Display', serif;
       font-weight: 800;
-      color: #090101;
+      color: #fff;
       margin-bottom: 1.2rem;
       letter-spacing: -1px;
       text-shadow: 0 2px 16px rgba(43, 70, 54, 0.28);
@@ -107,7 +101,7 @@
     }
     .center-intro p {
       font-size: 1.37rem;
-      color: #100e0e;
+      color: #f5f5f5;
       font-weight: 400;
       margin-bottom: 2.3rem;
       line-height: 1.6;
@@ -188,7 +182,6 @@
       border-radius: 12px;
       margin-bottom: 0.63rem;
     }
-
     /* -- Modern Contact Section -- */
     .contact-container {
       display: flex;
@@ -207,44 +200,17 @@
       min-width: 220px;
       padding-right: 1rem;
     }
-    .contact-info h2 {
-      margin: 0 0 12px 0;
-      color: var(--secondary);
-      font-size: 2rem;
-      letter-spacing: -1px;
-    }
-    .contact-info p {
-      color: var(--muted);
-      font-size: 1.06em;
-      margin-bottom: 16px;
-    }
+    .contact-info h2 { margin: 0 0 12px 0; color: var(--secondary); font-size: 2rem; letter-spacing: -1px; }
+    .contact-info p { color: var(--muted); font-size: 1.06em; margin-bottom: 16px; }
     .contact-alt-list {
       list-style: none;
       padding: 0;
       margin: 0;
     }
-    .contact-alt-list li {
-      margin-bottom: 0.52em;
-      font-size: 1.08em;
-      display: flex;
-      align-items: center;
-    }
-    .contact-alt-list i {
-      color: var(--accent);
-      margin-right: 0.6em;
-      font-size: 1.18em;
-      min-width: 1.5em;
-    }
-    .contact-alt-list a {
-      color: var(--secondary);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.17s;
-    }
-    .contact-alt-list a:hover {
-      color: #27361d;
-      text-decoration: underline;
-    }
+    .contact-alt-list li { margin-bottom: 0.52em; font-size: 1.08em; display: flex; align-items: center; }
+    .contact-alt-list i { color: var(--accent); margin-right: 0.6em; font-size: 1.18em; min-width: 1.5em; }
+    .contact-alt-list a { color: var(--secondary); text-decoration: none; font-weight: 500; transition: color 0.17s; }
+    .contact-alt-list a:hover { color: #27361d; text-decoration: underline; }
     .contact-form {
       flex: 2 1 350px;
       display: flex;
@@ -285,32 +251,15 @@
       cursor: pointer;
       transition: background 0.18s;
     }
-    .contact-form button:hover {
-      background: #27361d;
-    }
-    .form-note {
-      font-size: 0.98em;
-      color: var(--accent);
-      margin-top: 1em;
-      text-align: center;
-    }
-
+    .contact-form button:hover { background: #27361d; }
+    .form-note { font-size: 0.98em; color: var(--accent); margin-top: 1em; text-align: center; }
     @media (max-width: 800px) {
       .contact-container { flex-direction: column; gap: 1.7rem; padding: 1.2rem 0.5rem; }
       .contact-info { padding-right: 0; text-align: center;}
       .contact-form { margin: 0 auto; width: 100%; }
     }
-
-    /* Contact section font sizes unified with rest of site */
-    .center-contact p {
-      font-size: 1.08rem;
-      color: var(--muted);
-      margin-top: 1.3em;
-      max-width: 650px;
-    }
-    .center-contact a {
-      font-size: 1.08em;
-    }
+    .center-contact p { font-size: 1.08rem; color: var(--muted); margin-top: 1.3em; max-width: 650px; }
+    .center-contact a { font-size: 1.08em; }
     footer {
       text-align: center;
       padding: 1.5rem 5vw;
@@ -341,6 +290,7 @@
       .card { padding: 1rem; }
       form { font-size: 1.0rem; padding: 0.95rem 0.4rem;}
       .center-contact p { font-size: 0.98rem; }
+      .interests-list { font-size: 1rem !important; gap: 1rem !important; }
     }
   </style>
 </head>
@@ -352,6 +302,7 @@
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
+      <a href="#interests">Interests</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -361,7 +312,7 @@
       <p class="animated-slideup">
         AI and QA professional with 1+ years of experience in machine learning model development, test automation, and software quality assurance. Skilled in Python, TensorFlow, PyTorch, Selenium, and CI/CD pipelines. Experienced in NLP, computer vision, and deploying AI-driven solutions for healthcare and enterprise applications.
       </p>
-      <a class="button animated-bounce" href="Hem_Resume.pdf" download>Download Resume</a>
+      <a class="button animated-bounce" href="Hemnath_N_Resume.pdf" download>Download Resume</a>
     </div>
   </section>
   <section id="skills" class="alt-section" data-aos="fade-right">
@@ -413,6 +364,17 @@
       </div>
     </div>
   </section>
+  <!-- Interests Section: Paste immediately after Experience section -->
+  <section id="interests" class="alt-section" data-aos="fade-up">
+    <h2>Area of Interests</h2>
+    <div class="interests-list" style="display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 1.15rem; justify-content: center;">
+      <div class="interest-card" style="background: #fff; padding: 1.1rem 1.8rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(68,92,66,0.08); color: var(--secondary); font-weight: 600;">Computer Vision</div>
+      <div class="interest-card" style="background: #fff; padding: 1.1rem 1.8rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(68,92,66,0.08); color: var(--secondary); font-weight: 600;">Natural Language Processing</div>
+      <div class="interest-card" style="background: #fff; padding: 1.1rem 1.8rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(68,92,66,0.08); color: var(--secondary); font-weight: 600;">Quality Assurance</div>
+      <div class="interest-card" style="background: #fff; padding: 1.1rem 1.8rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(68,92,66,0.08); color: var(--secondary); font-weight: 600;">Data Analytics</div>
+      <div class="interest-card" style="background: #fff; padding: 1.1rem 1.8rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(68,92,66,0.08); color: var(--secondary); font-weight: 600;">AI Development</div>
+    </div>
+  </section>
   <section id="projects" data-aos="fade-left">
     <h2>Projects</h2>
     <div class="grid">
@@ -442,7 +404,6 @@
       </div>
     </div>
   </section>
-
   <!-- Beautiful Modern Contact Section -->
   <section id="contact" data-aos="zoom-in">
     <div class="contact-container">
@@ -459,13 +420,10 @@
       <form class="contact-form" action="https://formspree.io/f/mkgzjapj" method="POST" autocomplete="off">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required>
-
         <label for="email">Email</label>
         <input type="email" id="email" name="email" required>
-
         <label for="purpose">Message</label>
         <textarea id="purpose" name="purpose" rows="4" placeholder="Tell me about your project, question, or idea..." required></textarea>
-
         <button type="submit">Send Message</button>
         <div class="form-note">I reply within 24 hours — or sooner!</div>
       </form>
