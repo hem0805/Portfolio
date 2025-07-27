@@ -1,448 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hemnath | AI Engineer</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <meta name="description" content="Hemnath | AI Engineer Portfolio - Showcasing AI, ML, QA automation, and software testing projects and experience">
-  <meta property="og:title" content="Hemnath | AI Engineer Portfolio">
-  <meta property="og:description" content="Projects and experience in AI, ML, CV, NLP, and software QA testing">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://hemnath.dev">
-  <meta property="og:image" content="https://yourdomain.com/preview.jpg">
-  <style>
-    :root {
-      --bg-light: #f5f5f0;
-      --bg-alt: #e9ece5;
-      --fg: #2e2d2a;
-      --accent: #7a7a52;
-      --secondary: #445c42;
-      --muted: #5c5c5c;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-    html { scroll-behavior: smooth; }
-    body {
-      color: var(--fg);
-      background: var(--bg-light);
-      line-height: 1.6;
-      font-size: 18px;
-    }
-    nav {
-      position: sticky;
-      top: 0;
-      width: 100%;
-      background: var(--bg-light);
-      display: flex;
-      justify-content: space-between;
-      padding: 1.1rem 8vw;
-      z-index: 1000;
-      border-bottom: 1px solid #ccc;
-    }
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      margin-left: 1.3rem;
-      font-weight: 500;
-      font-size: 1.05rem;
-      transition: color 0.2s ease;
-    }
-    nav a:hover { color: var(--secondary); }
-    section { padding: 3.5rem 5vw 3.5rem; }
-    .alt-section { background: var(--bg-alt); }
-    /* Centered, animated intro */
-    .intro {
-      position: relative;
-      min-height: 65vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-      background:
-        linear-gradient(rgba(37, 48, 39, 0.48), rgba(65, 95, 70, 0.42)),
-        url('https://plus.unsplash.com/premium_photo-1661407757391-a5f03cbea97b?q=80&w=1521&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/contain no-repeat;
-      animation: intro-bg-fadein 1.3s ease-in;
-      padding-top: 3vh;
-      padding-bottom: 3vh;
-    }
-    @keyframes intro-bg-fadein {
-      0% { opacity: 0; filter: blur(3px);}
-      100% { opacity: 1; filter: blur(0);}
-    }
-    .center-intro {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      max-width: 700px;
-      margin: 0 auto;
-      background: rgba(255,255,255,0.10);
-      border-radius: 22px;
-      padding: 2.5rem 2rem;
-      box-shadow: 0 8px 32px rgba(44,53,50,.07);
-    }
-    .center-intro h1 {
-      font-size: 3.6rem;
-      font-family: 'Playfair Display', serif;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 1.2rem;
-      letter-spacing: -1px;
-      text-shadow: 0 2px 16px rgba(43, 70, 54, 0.28);
-    }
-    .animated-fadein {
-      opacity: 0;
-      animation: fadein 1.2s ease 0.3s forwards;
-    }
-    @keyframes fadein {
-      to { opacity: 1; }
-    }
-    .center-intro p {
-      font-size: 1.37rem;
-      color: #f5f5f5;
-      font-weight: 400;
-      margin-bottom: 2.3rem;
-      line-height: 1.6;
-      text-shadow: 0 1px 8px rgba(0,0,0,0.11);
-    }
-    .animated-slideup {
-      opacity: 0;
-      transform: translateY(40px);
-      animation: slideup 1.2s ease 0.7s forwards;
-    }
-    @keyframes slideup {
-      to { opacity: 1; transform: none; }
-    }
-    .center-intro .button {
-      font-size: 1.22rem;
-      padding: 1rem 2.3rem;
-      border-radius: 2em;
-      background: var(--secondary);
-      color: #fff;
-      border: none;
-      text-decoration: none;
-      font-weight: 600;
-      box-shadow: 0 2px 18px rgba(44,61,35,0.08);
-      transition: background 0.2s, transform 0.12s;
-      position: relative;
-    }
-    .animated-bounce {
-      animation: bounceIn 1.3s cubic-bezier(.23,1.22,.69,.9) 1s forwards;
-      opacity: 0;
-    }
-    @keyframes bounceIn {
-      0% { opacity: 0; transform: scale(0.6);}
-      40% { opacity: .65; transform: scale(1.15);}
-      70% { opacity: 1; transform: scale(0.97);}
-      100% { opacity: 1; transform: scale(1);}
-    }
-    .center-intro .button:hover {
-      background: #1d2b1b;
-      transform: scale(1.05);
-      box-shadow: 0 6px 30px rgba(44,61,35,0.13);
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 1.2rem;
-    }
-    .card {
-      background: #fff;
-      padding: 1.3rem;
-      border-radius: 16px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.11);
-      transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-      cursor: pointer;
-      position: relative;
-    }
-    .card:hover {
-      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
-      transform: translateY(-7px);
-      border: 1px solid var(--accent);
-    }
-    .card h3 {
-      color: var(--accent);
-      font-size: 1.18rem;
-      margin-bottom: 0.52rem;
-    }
-    .card .details {
-      display: none;
-      font-size: 1.05rem;
-      color: var(--muted);
-      margin-top: 0.62rem;
-      line-height: 1.5;
-    }
-    .card.show .details {
-      display: block;
-    }
-    .card img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 0.63rem;
-    }
-    /* -- Modern Contact Section -- */
-    .contact-container {
-      display: flex;
-      gap: 2.5rem;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      margin: 0 auto;
-      max-width: 900px;
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 8px 32px rgba(44,53,50,0.07);
-      padding: 2.5rem 2rem;
-    }
-    .contact-info {
-      flex: 1 1 250px;
-      min-width: 220px;
-      padding-right: 1rem;
-    }
-    .contact-info h2 { margin: 0 0 12px 0; color: var(--secondary); font-size: 2rem; letter-spacing: -1px; }
-    .contact-info p { color: var(--muted); font-size: 1.06em; margin-bottom: 16px; }
-    .contact-alt-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .contact-alt-list li { margin-bottom: 0.52em; font-size: 1.08em; display: flex; align-items: center; }
-    .contact-alt-list i { color: var(--accent); margin-right: 0.6em; font-size: 1.18em; min-width: 1.5em; }
-    .contact-alt-list a { color: var(--secondary); text-decoration: none; font-weight: 500; transition: color 0.17s; }
-    .contact-alt-list a:hover { color: #27361d; text-decoration: underline; }
-    .contact-form {
-      flex: 2 1 350px;
-      display: flex;
-      flex-direction: column;
-      background: #f9f9f8;
-      border-radius: 12px;
-      padding: 1.4rem 1.2rem;
-      box-shadow: 0 2px 10px rgba(68,92,66,0.05);
-    }
-    .contact-form label {
-      font-weight: 600;
-      margin-top: 0.85rem;
-      color: var(--secondary);
-      font-size: 1em;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      margin-top: 0.32em;
-      margin-bottom: 0.79em;
-      padding: 0.7em;
-      font-size: 1em;
-      border: 1.5px solid #bcbcbc;
-      border-radius: 8px;
-      background: #fff;
-      color: var(--fg);
-      font-family: inherit;
-    }
-    .contact-form textarea { resize: vertical; }
-    .contact-form button {
-      font-size: 1.13em;
-      padding: 0.71em 1.75em;
-      border-radius: 8px;
-      background: var(--secondary);
-      color: #fff;
-      border: none;
-      font-weight: 600;
-      margin-top: 0.5em;
-      cursor: pointer;
-      transition: background 0.18s;
-    }
-    .contact-form button:hover { background: #27361d; }
-    .form-note { font-size: 0.98em; color: var(--accent); margin-top: 1em; text-align: center; }
-    @media (max-width: 800px) {
-      .contact-container { flex-direction: column; gap: 1.7rem; padding: 1.2rem 0.5rem; }
-      .contact-info { padding-right: 0; text-align: center;}
-      .contact-form { margin: 0 auto; width: 100%; }
-    }
-    .center-contact p { font-size: 1.08rem; color: var(--muted); margin-top: 1.3em; max-width: 650px; }
-    .center-contact a { font-size: 1.08em; }
-    footer {
-      text-align: center;
-      padding: 1.5rem 5vw;
-      background: var(--bg-alt);
-      color: var(--muted);
-    }
-    a.button {
-      display: inline-block;
-      margin-top: 1.2rem;
-      background: var(--secondary);
-      color: white;
-      padding: 0.75rem 1.7rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 1.08rem;
-      font-weight: 600;
-    }
-    a.button:hover { opacity: 0.94; background: #354832;}
-    @media(max-width: 768px){
-      .center-intro h1 { font-size: 2.1rem; }
-      .center-intro p { font-size: 1.02rem; }
-      .center-intro { padding: 1.0rem 0.2rem; }
-      .intro { min-height: 45vh; }
-      .intro { padding-top: 1vh; padding-bottom: 1vh;}
-      nav a { margin-left: 0.8rem; font-size: 1.0rem; }
-      h2 { font-size: 1.18rem; }
-      section { padding: 1.6rem 2vw 1.6rem; }
-      .card { padding: 1rem; }
-      form { font-size: 1.0rem; padding: 0.95rem 0.4rem;}
-      .center-contact p { font-size: 0.98rem; }
-      .interests-list { font-size: 1rem !important; gap: 1rem !important; }
-    }
-  </style>
-</head>
-<body>
-  <nav>
-    <div style="color: var(--fg); font-weight: 700;">HEMNATH</div>
-    <div>
-      <a href="#home">Home</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#interests">Interests</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
-  <section class="intro" id="home" data-aos="fade-up">
-    <div class="center-intro">
-      <h1 class="animated-fadein">Hi, I'm Hemnath</h1>
-      <p class="animated-slideup">
-        AI and QA professional with 1+ years of experience in machine learning model development, test automation, and software quality assurance. Skilled in Python, TensorFlow, PyTorch, Selenium, and CI/CD pipelines. Experienced in NLP, computer vision, and deploying AI-driven solutions for healthcare and enterprise applications.
-      </p>
-      <a class="button animated-bounce" href="Hemnath_N_Resume.pdf" download>Download Resume</a>
-    </div>
-  </section>
-  <section id="skills" class="alt-section" data-aos="fade-right">
-    <h2>Skills</h2>
-    <div class="grid">
-      <div class="card" onclick="toggleDetails(this)">
-        <h3>Programming & Frameworks</h3>
-        <p class="details">Python, SQL, Git, TensorFlow, PyTorch, Scikit-learn, ML, OCR</p>
-      </div>
-      <div class="card" onclick="toggleDetails(this)">
-        <h3>Data Processing & Feature Engineering</h3>
-        <p class="details">Skilled in NumPy, Pandas, OpenCV, NLTK, and SpaCy</p>
-      </div>
-      <div class="card" onclick="toggleDetails(this)">
-        <h3>Data Analytics & Visualization</h3>
-        <p class="details">Power BI, Data Analytics, MS Excel</p>
-      </div>
-      <div class="card" onclick="toggleDetails(this)">
-        <h3>AI & Automation</h3>
-        <p class="details">ChatGPT, Google Colab, Automation, Azure</p>
-      </div>
-      <div class="card" onclick="toggleDetails(this)">
-        <h3>Software Testing</h3>
-        <p class="details">Selenium, Manual, Regression, API Testing, JIRA, CI/CD Pipelines, TestNG, Jenkins</p>
-      </div>
-    </div>
-  </section>
-  <section id="experience" class="alt-section" data-aos="fade-up">
-    <h2>Experience</h2>
-    <div class="grid">
-      <div class="card" onclick="toggleDetails(this)">
-        <h3>Associate Software Engineer (QA) – HealthEdge (2024–2025)</h3>
-        <p class="details">
-          Built and maintained automation frameworks for claims and compliance in US healthcare systems.<br>
-          Led testing in CI/CD pipelines.<br>
-          Automated regression and API testing using Selenium, TestNG, and Jenkins.<br>
-          Collaborated with cross-functional teams to enhance software quality.<br>
-          Conducted thorough manual and automated tests to ensure robust product releases.
-        </p>
-      </div>
-      <div class="card" onclick="toggleDetails(this)">
-        <h3>AI Intern – RBG.AI (2023)</h3>
-        <p class="details">
-          Developed NLP and computer vision solutions using deep learning for document and image analysis.<br>
-          Integrated OCR pipelines for automated data extraction and processing.<br>
-          Improved model efficiency and accuracy for real-time deployment.<br>
-          Optimized machine learning workflows in collaboration with senior engineers.
-        </p>
-      </div>
-    </div>
-  </section>
-  <!-- Interests Section: Paste immediately after Experience section -->
-  <section id="interests" class="alt-section" data-aos="fade-up">
-    <h2>Area of Interests</h2>
-    <div class="interests-list" style="display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 1.15rem; justify-content: center;">
-      <div class="interest-card" style="background: #fff; padding: 1.1rem 1.8rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(68,92,66,0.08); color: var(--secondary); font-weight: 600;">Computer Vision</div>
-      <div class="interest-card" style="background: #fff; padding: 1.1rem 1.8rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(68,92,66,0.08); color: var(--secondary); font-weight: 600;">Natural Language Processing</div>
-      <div class="interest-card" style="background: #fff; padding: 1.1rem 1.8rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(68,92,66,0.08); color: var(--secondary); font-weight: 600;">Quality Assurance</div>
-      <div class="interest-card" style="background: #fff; padding: 1.1rem 1.8rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(68,92,66,0.08); color: var(--secondary); font-weight: 600;">Data Analytics</div>
-      <div class="interest-card" style="background: #fff; padding: 1.1rem 1.8rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(68,92,66,0.08); color: var(--secondary); font-weight: 600;">AI Development</div>
-    </div>
-  </section>
-  <section id="projects" data-aos="fade-left">
-    <h2>Projects</h2>
-    <div class="grid">
-      <div class="card" onclick="toggleDetails(this)">
-        <img src="MDD.png" alt="Multimodal Depression Detection">
-        <h3>Multimodal Depression Detection</h3>
-        <p>Fusion model with text, audio, and video for mental health diagnosis.</p>
-        <div class="details">
-          Built using CNNs, speech processing and NLP models to extract features and detect depressive markers across modalities. Optimized for scalable real-time inference.
-        </div>
-      </div>
-      <div class="card" onclick="toggleDetails(this)">
-        <img src="HAR.png" alt="Human Activity Recognition">
-        <h3>Human Activity Recognition</h3>
-        <p>Multi-sensor AI pipeline for real-time action recognition.</p>
-        <div class="details">
-          Combines visual and IMU data streams using deep learning for activity classification in smart spaces. Developed for deployment on edge devices.
-        </div>
-      </div>
-      <div class="card" onclick="toggleDetails(this)">
-        <img src="SRS.png" alt="AI Skincare Recommender">
-        <h3>AI Skincare Recommender</h3>
-        <p>Photo-based skincare suggestion system.</p>
-        <div class="details">
-          Uses MobileNetV2 for skin analysis and LLM-based advice. Built with Streamlit for interactive UI and privacy-first design.
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Beautiful Modern Contact Section -->
-  <section id="contact" data-aos="zoom-in">
-    <div class="contact-container">
-      <div class="contact-info">
-        <h2>Let’s Connect!</h2>
-        <p>
-          I’m always happy to talk about new AI projects, collaborations, or just chat tech. Drop me a line below or reach out directly—let’s build something great together!
-        </p>
-        <ul class="contact-alt-list">
-          <li><i class="fas fa-envelope"></i> <a href="mailto:hemnath0805@gmail.com">hemnath0805@gmail.com</a></li>
-          <li><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/hemnath-n" target="_blank">LinkedIn</a></li>
-        </ul>
-      </div>
-      <form class="contact-form" action="https://formspree.io/f/mkgzjapj" method="POST" autocomplete="off">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-        <label for="purpose">Message</label>
-        <textarea id="purpose" name="purpose" rows="4" placeholder="Tell me about your project, question, or idea..." required></textarea>
-        <button type="submit">Send Message</button>
-        <div class="form-note">I reply within 24 hours — or sooner!</div>
-      </form>
-    </div>
-  </section>
-  <footer>
-    &copy; 2025 Hemnath — AI Engineer Portfolio
-  </footer>
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <title>Hemnath | AI & QA Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    AOS.init({ duration: 1000, once: true });
-    function toggleDetails(card) {
-      document.querySelectorAll('.card').forEach(function(otherCard) {
-        if (otherCard !== card) {
-          otherCard.classList.remove('show');
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0E7490',
+            accent: '#FBBF24',
+            lightBg: '#ECFDF5',
+            darkBg: '#0F172A',
+            darkText: '#E2E8F0'
+          },
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif']
+          }
         }
-      });
-      card.classList.toggle('show');
+      }
     }
   </script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+    .tag {
+      background-color: #e0e7ff;
+      color: #3730a3;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+  </style>
+<style>
+  @keyframes fade-in-down {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .animate-fade-in-down {
+    animation: fade-in-down 1s ease-out forwards;
+  }
+  .animate-fade-in-up {
+    animation: fade-in-up 1s ease-out forwards;
+  }
+  .animate-fade-in {
+    animation: fade-in 1.5s ease-in forwards;
+  }
+</style>
+</head>
+
+<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 scroll-smooth">
+  <script>AOS.init();</script>
+
+  <!-- Sticky Contact Button -->
+<div class="fixed bottom-6 right-6 z-50">
+  <a href="#contact" class="bg-primary hover:bg-accent text-white px-5 py-3 rounded-full shadow-lg flex items-center gap-2 transition-transform transform hover:scale-105">
+    <img src="https://img.icons8.com/ios-filled/20/ffffff/contacts.png" alt="Contact Icon"/>
+    <span>Contact</span>
+  </a>
+</div>
+
+<!-- Toggle Dark Mode -->
+  <div class="fixed top-4 right-4 z-50">
+    <button onclick="document.documentElement.classList.toggle('dark')"
+      class="bg-gray-800 text-white dark:bg-white dark:text-black px-4 py-2 rounded-full shadow">
+      Toggle Mode
+    </button>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full z-40 bg-white dark:bg-gray-800 shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <span class="text-xl font-bold text-primary dark:text-accent">Hemnath</span>
+
+      <div class="space-x-6 hidden md:flex font-semibold text-sm">
+        <a href="#about" class="hover:text-primary dark:hover:text-indigo-400">About</a>
+        <a href="#skills" class="hover:text-primary dark:hover:text-indigo-400">Skills</a>
+        <a href="#experience" class="hover:text-primary dark:hover:text-indigo-400">Experience</a>
+        <a href="#projects" class="hover:text-primary dark:hover:text-indigo-400">Projects</a>
+        <a href="#contact" class="hover:text-primary dark:hover:text-indigo-400">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative h-screen flex items-center justify-center bg-cover bg-center pt-50" style="background-image: url('https://en.idei.club/uploads/posts/2023-06/1686775418_en-idei-club-p-portfolio-background-design-dizain-krasivo-1.jpg');">
+  <div class="absolute inset-0 bg-black/40 dark:bg-black/60"></div>
+    <div class="relative z-10 text-center max-w-2xl px-4 bg-gray-100/20 dark:bg-gray-900/80 backdrop-blur-md rounded-xl p-8 shadow-lg" data-aos="fade-up">
+      <h2 class="text-3xl md:text-5xl font-extrabold text-black:text-accent mb-4 animate-fade-in-down">Hemnath N</h2>
+      <p class="text-lg md:text-l text-white-700 dark:text-white-700 mb-6 animate-fade-in-up">AI & QA Engineer | Automation | Computer Vision | Generative AI</p>
+      <a href="#projects" class="inline-block bg-primary text-black px-6 py-3 rounded-full shadow hover:bg-accent transition animate-fade-in">Explore My Work</a>
+    </div>
+  <div class="absolute bottom-10 w-full flex justify-center z-10">
+    <a href="#about" class="animate-bounce text-white dark:text-accent">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12.75L12 20.25L4.5 12.75" />
+      </svg>
+    </a>
+  </div>
+</section>
+
+  <!-- About Me Section -->
+  <section id="about" class="py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-7xl mx-auto px-6" data-aos="fade-right">
+      <h2 class="text-3xl font-bold text-primary dark:text-accent mb-6">About Me</h2>
+      <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+        I’m an AI and QA professional with over 1 year of experience in machine learning model development, test automation,
+        and software quality assurance. I specialize in Python, TensorFlow, PyTorch, Selenium, and CI/CD pipelines. My work
+        focuses on NLP, Computer Vision, and deploying AI-driven solutions across healthcare and enterprise platforms.
+      </p>
+      <div class="mt-8">
+        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">Areas of Interest</h3>
+        <div class="flex flex-wrap gap-4">
+          <span class="tag">Computer Vision</span>
+          <span class="tag">Natural Language Processing</span>
+          <span class="tag">Data Analytics</span>
+          <span class="tag">Quality Assurance</span>
+          <span class="tag">AI Development</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+<section id="skills" class="py-20 bg-white dark:bg-gray-900">
+  <div class="max-w-7xl mx-auto px-6" data-aos="fade-up">
+    <h2 class="text-3xl font-bold text-primary dark:text-accent mb-6">Skills</h2>
+    <div class="space-y-8">
+      <div>
+        <h3 class="text-xl font-semibold mb-2">Languages & Frameworks</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">HTML</span>
+          <span class="tag">TensorFlow</span><span class="tag">PyTorch</span><span class="tag">Scikit-learn</span>
+          <span class="tag">OpenCV</span><span class="tag">Transformers</span><span class="tag">OCR</span>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold mb-2">AI Tools & Platforms</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag">Google Colab</span><span class="tag">Streamlit</span><span class="tag">Git</span>
+          <span class="tag">Azure</span><span class="tag">ChatGPT</span>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold mb-2">Data & Analytics</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag">NumPy</span><span class="tag">Pandas</span><span class="tag">Data Cleaning</span>
+          <span class="tag">Feature Engineering</span><span class="tag">Power BI</span><span class="tag">MS Excel</span>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold mb-2">Testing & QA</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag">Selenium</span><span class="tag">Manual Testing</span><span class="tag">Regression Testing</span>
+          <span class="tag">API Testing</span><span class="tag">CI/CD Pipelines</span><span class="tag">TestNG</span>
+          <span class="tag">Jenkins</span><span class="tag">JIRA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="py-20 bg-gray-50 dark:bg-gray-800">
+  <div class="max-w-7xl mx-auto px-6" data-aos="fade-left">
+    <h2 class="text-3xl font-bold text-primary dark:text-accent mb-10">Experience</h2>
+    <div class="space-y-6">
+      <div class="bg-white dark:bg-gray-900 shadow rounded-lg p-6">
+        <h3 class="text-xl font-semibold">Associate Software Engineer in Test</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400">HealthEdge – Hyderabad | Jan 2024 – Mar 2025</p>
+        <ul class="list-disc list-inside mt-2 text-gray-700 dark:text-gray-300">
+          <li>Tested enterprise applications in the US Healthcare domain including payer systems and compliance processes.</li>
+          <li>Executed manual and automated tests using Selenium across functional, regression, and performance suites.</li>
+          <li>Built robust automation frameworks and integrated them into CI/CD pipelines to enhance quality and delivery.</li>
+        </ul>
+      </div>
+      <div class="bg-white dark:bg-gray-900 shadow rounded-lg p-6">
+        <h3 class="text-xl font-semibold">AI Intern</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400">RBG.AI – Coimbatore | May 2023 – Oct 2023</p>
+        <ul class="list-disc list-inside mt-2 text-gray-700 dark:text-gray-300">
+          <li>Developed deep learning models for Computer Vision and NLP using TensorFlow, Python, and OpenCV.</li>
+          <li>Used CNNs, RNNs, and Transformers to improve model performance, integrating OCR for text extraction automation.</li>
+          <li>Led end-to-end AI workflow development from data preprocessing to model optimization and deployment.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="py-20 bg-white dark:bg-gray-900">
+  <div class="max-w-7xl mx-auto px-6" data-aos="fade-up">
+    <h2 class="text-3xl font-bold text-primary dark:text-accent mb-10">Projects</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Project 1 -->
+      <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition">
+        <img src="MDD1.jpg" alt="Multimodal Depression Detection" class="w-full h-48 object-cover rounded mb-4">
+        <h3 class="text-xl font-semibold mb-2">Multimodal Depression Detection</h3>
+        <p class="text-sm mb-4">Deep learning system combining text, audio, and video using CNNs, NLP, and speech analysis for depression prediction.</p>
+        <div class="flex flex-wrap gap-2 text-sm">
+          <span class="tag">Python</span><span class="tag">CNN</span><span class="tag">NLP</span><span class="tag">Deep Learning</span>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition">
+        <img src="HAR1.jpg" alt="Human Activity Recognition" class="w-full h-48 object-cover rounded mb-4">
+        <h3 class="text-xl font-semibold mb-2">Human Activity Recognition</h3>
+        <p class="text-sm mb-4">Real-time activity recognition using deep learning with sensor data, featuring robust preprocessing and classification.</p>
+        <div class="flex flex-wrap gap-2 text-sm">
+          <span class="tag">Python</span><span class="tag">CNN</span><span class="tag">Computer Vision</span><span class="tag">Data Preprocessing</span>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition">
+        <img src="SR1.jpg" alt="Skincare Recommendation System" class="w-full h-48 object-cover rounded mb-4">
+        <h3 class="text-xl font-semibold mb-2">AI-based Skincare Recommendation</h3>
+        <p class="text-sm mb-4">Developed an intelligent skincare recommendation system leveraging user skin profile data and classification models to personalize product suggestions.</p>
+        <div class="flex flex-wrap gap-2 text-sm">
+          <span class="tag">Python</span><span class="tag">Machine Learning</span><span class="tag">Classification</span><span class="tag">Data Analysis</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-24 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+  <div class="max-w-7xl mx-auto px-8 lg:px-16" data-aos="fade-up">
+    <h2 class="text-4xl font-bold text-primary dark:text-accent mb-4 text-center">Contact</h2>
+    <p class="text-lg text-gray-700 dark:text-gray-300 mb-12 text-center">Let’s create something impactful together. Reach out to me!</p>
+
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+      <div class="space-y-4 text-gray-700 dark:text-gray-300">
+        <div class="flex items-center gap-3">
+          <img src="https://img.icons8.com/ios-filled/30/000000/email.png" class="dark:invert transition-transform transform hover:scale-110 duration-300" alt="Email"/>
+          <p><strong>Email:</strong> <a href="mailto:hemnath0805@gmail.com" class="text-primary dark:text-accent">hemnath0805@gmail.com</a></p>
+        </div>
+        <div class="flex items-center gap-3">
+          <img src="https://img.icons8.com/ios-filled/30/000000/phone.png" class="dark:invert" alt="Phone"/>
+          <p><strong>Phone:</strong> <a href="tel:+918525859072" class="text-primary dark:text-accent">+91 85258 59072</a></p>
+        </div>
+        <div class="flex items-center gap-3">
+          <img src="https://img.icons8.com/ios-filled/30/000000/worldwide-location.png" class="dark:invert" alt="Location"/>
+          <p><strong>Location:</strong> Coimbatore, India</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <img src="https://img.icons8.com/ios-filled/30/000000/linkedin.png" class="dark:invert" alt="LinkedIn"/>
+          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/hemnath-n/" target="_blank" class="text-primary dark:text-accent">linkedin.com/in/hemnath-n</a></p>
+        </div>
+        <div class="flex items-center gap-3">
+          <img src="https://img.icons8.com/ios-filled/30/000000/instagram-new.png" class="dark:invert" alt="Instagram"/>
+          <p><strong>Instagram:</strong> <a href="https://www.instagram.com/hemnath____/" target="_blank" class="text-primary dark:text-accent">@your_username</a></p>
+        </div>
+        <div class="flex items-center gap-3">
+          <img src="https://img.icons8.com/ios-filled/30/000000/whatsapp.png" class="dark:invert" alt="WhatsApp"/>
+          <p><strong>WhatsApp:</strong> <a href="https://wa.me/918525859072" target="_blank" class="text-primary dark:text-accent">Chat Now</a></p>
+        </div>
+        <a href="Hemnath_N_Resume.pdf" download class="inline-block mt-6 bg-primary text-white px-6 py-2 rounded-full shadow hover:bg-accent transition">Download Resume</a>
+      </div>
+
+      <form action="https://formspree.io/f/mkgzjapj" method="POST" class="space-y-6 bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+        <input type="text" name="name" placeholder="Your Name" required class="w-full p-3 rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary">
+        <input type="email" name="email" placeholder="Your Email" required class="w-full p-3 rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary">
+        <textarea name="message" rows="5" placeholder="Your Message" required class="w-full p-3 rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+        <button type="submit" class="bg-primary text-white px-6 py-3 rounded-full shadow hover:bg-accent transition">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->X`
+<footer class="bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 py-6 text-center text-sm text-gray-600 dark:text-gray-400">
+  <p>&copy; 2025 Hemnath N. All rights reserved.</p>
+</footer>
+
+<script>
+  const form = document.querySelector('form');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const res = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+    if (res.ok) {
+      alert('Thank you! Your message has been sent successfully.');
+      form.reset();
+    } else {
+      alert('Oops! Something went wrong. Please try again later.');
+    }
+  });
+</script>
 </body>
+
 </html>
